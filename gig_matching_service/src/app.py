@@ -11,5 +11,14 @@ def auth_health():
     })
 
 
+@app.route("/match/get/gigs")
+def get_gigs():
+    return jsonify({
+        "code": "00",
+        "description": "Fetched gigs successfully",
+        "data": ""
+    })
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)

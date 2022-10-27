@@ -28,6 +28,20 @@ services:
     networks:
       - webnet
 
+  
+  gig_monitor_service:
+    build:
+      context: ./gig_monitor_service
+      dockerfile: Dockerfile
+    image: gig_monitor_service:1.0
+    environment:
+      FLASK_DEBUG: True
+    ports:
+      - "5002:5002"
+    restart: always
+    networks:
+      - webnet
+
 
 networks:
   webnet:
