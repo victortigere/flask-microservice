@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  
+  auth_service:
+    build:
+      context: ./auth_service
+      dockerfile: Dockerfile
+    image: auth_service:1.0
+    environment: 
+        FLASK_DEBUG: True
+    ports:
+        - "5000:5000"
+    restart: always
+    networks: 
+        - webnet
+      
+        
+  gig_matching_service:
+    build:
+      context: ./gig_matching_service
+      dockerfile: Dockerfile
+    image: gig_matching_service:1.0
+    environment:
+      FLASK_DEBUG: True
+    ports:
+      - "5001:5001"
+    restart: always
+    networks:
+      - webnet
+
+
+networks:
+  webnet:
+
